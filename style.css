@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(192, 165, 115);
+}
+
+#container {
+    width: 50%;
+    margin: 100px auto;
+
+    text-align: center;
+}
+
+#calculator {
+    width: 390px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+#display {
+    width: 90%;
+    margin: 10px auto;
+    background-color: gray;
+    padding: 0.5em 1em;
+}
+
+#inputDisplay {
+    text-align: left;
+}
+
+#outputDisplay {
+    text-align: right;
+}
+
+#calculator-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    width: 90%;
+    margin: 10px auto;
+}
+
+button {
+    aspect-ratio: 1;
+}
