@@ -5,14 +5,13 @@ body {
 }
 
 #container {
-    width: 50%;
+    width: 390px;
     margin: 100px auto;
 
     text-align: center;
 }
 
 #calculator {
-    width: 390px;
     margin: 0 auto;
     background-color: white;
 }
@@ -36,7 +35,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
-    width: 90%;
+    width: 380px;
     margin: 10px auto;
 }
 
