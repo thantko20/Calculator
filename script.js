@@ -1,11 +1,16 @@
-const buttons = document.querySelectorAll('button');
+const numbers = document.querySelectorAll('.numbers');
+const operators = document.querySelectorAll('.operators');
+const equal = document.getElementById('equal');
+
 const input = document.getElementById('inputDisplay');
 const output = document.getElementById('outputDisplay');
 
-const addition = document.getElementById('addition');
-const subtraction = document.getElementById('subtraction');
-const multiplication = document.getElementById('multiplication');
-const division = document.getElementById('divison');
+let firstNum = '';
+let secondNum = '';
+let operator = undefined;
+let result = 0;
+
+displayInput();
 
 function add(a, b) {
     return a + b;
@@ -23,39 +28,38 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(a, b) {
-    addition.addEventListener('click', () => {
-        add(a, b);
-    })
-    // code to implement when add is called
-    
-    subtract(a, b);
-    // code to implement when subtract is called
+function operate(a, b, operator) {
+    a = parseInt(a);
+    b = parseInt(b);
 
-    multiply(a, b);
-    // code to implement when multiply is called
-
-    divide(a, b);
-    // code to implement when divide is called
-
+    if(operator === '+') {
+        return add(a, b);
+    }
 }
 
-function displayInput(a, b) {
-    const result = 0;
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            input.textContent += button.value;
+function displayInput() {
+    numbers.forEach(number => {
+        number.addEventListener('click', () => {
+            if(operator === undefined) {
+                firstNum += number.textContent;
+                input.textContent = firstNum;
+            }
+            else {
+                secondNum += number.textContent;
+                input.textContent = secondNum;
+            }
         })
     })
 
-    return addition.addEventListener('click', () => {
-        return add(a, b);
+    operators.forEach(op => {
+        op.addEventListener('click', () => {
+            operator = op.textContent;
+        })
+    })
+
+    equal.addEventListener('click', () => {
+        input.textContent = operate(firstNum, secondNum, operator);
+        operator = undefined;
+        firstNum = input.textContent;
     })
 }
-
-function displayOutput() {
-    return displayInput();
-}
-
-displayInput();
