@@ -1,11 +1,11 @@
 const numbers = document.querySelectorAll('.numbers');
 const operators = document.querySelectorAll('.operators');
 const equal = document.getElementById('equal');
+const sqrt = document.getElementById('sqrt');
 
 const input = document.getElementById('inputDisplay');
 
 const ac = document.getElementById('ac');
-const del = document.getElementById('backspace');
 const minus = document.getElementById('minus');
 const dot = document.getElementById('dot');
 
@@ -19,8 +19,18 @@ main();
 function main(){
     display();
     clearAll();
-    //clearLast(firstNum);
-    //clearLast(secondNum);
+
+    sqrt.addEventListener('click', () => {
+        firstNum = Math.sqrt(firstNum);
+        input.textContent = firstNum;
+    })
+}
+
+function negativeCovert(a) {
+    minus.addEventListener('click', () => {
+        if(a < 0) return -a;
+        return a;
+    })
 }
 
 function add(a, b) {
@@ -50,15 +60,6 @@ function clearAll() {
         firstNum = '';
         secondNum = '';
         operator = undefined;
-    })
-}
-
-function clearLast(a) {
-    del.addEventListener('click', () => {
-        let temp = a.split('');
-        temp.splice(-1, 1);
-        a = temp.join('');
-        input.textContent = a;
     })
 }
 
@@ -99,4 +100,12 @@ function display() {
         firstNum = input.textContent;
         secondNum = '';
     })
+}
+
+function checkDot(a) {
+    let temp = a.split('');
+    for(let i = 0; i < temp.length; i++) {
+        if(temp[i] === '.') return true;
+    }
+    return false;
 }
