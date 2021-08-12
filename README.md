@@ -5,7 +5,7 @@ This is a final project of The Odin Project's Foundations Course.
 ## Instructions
 
 - Takes two numbers and operate basic arithmetic calculations.
-- All 'All Clear' button. 
+- Add 'All Clear' button. 
 
 ## Screenshots
 
