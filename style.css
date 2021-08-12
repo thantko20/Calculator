@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(192, 165, 115);
+    background-color: rgb(240, 185, 160);
 
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
@@ -11,37 +11,74 @@ body {
 
 #container {
     width: 390px;
-    margin: 100px auto;
+    margin: 100px auto 50px auto;
 
     text-align: center;
 }
 
 #calculator {
-    margin: 0 auto;
-    background-color: white;
+    padding: 20px 10px;
+    border: 1px solid none;
+    border-radius: 20px;
+    background-color: rgb(255, 244, 183);
 }
 
 #inputDisplay {
     width: 90%;
-    margin: 10px auto;
+    font-size: 1.5em;
+    padding: 15px 5px 15px 0;
+    margin: 0 auto;
     text-align: right;
+
+    background-color: white;
+    border: 2px solid none;
+    border-radius: 15px;
 }
 
-#calculator-container {
+#numpad {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
     width: 90%;
-    margin: 10px auto;
+    margin: 0px auto;
+    margin-top: 10px;
 }
 
 button {
     font-family: 'Orbitron', sans-serif;
+    border-radius: 20px;
+    border: 1px solid rgb(196, 98, 62);
+    background-color: coral;
+
     aspect-ratio: 1;
+}
+
+button:hover {
+    background-color: rgb(255, 68, 0);
+    transform: scale(1.1);
+}
+
+.operators {
+    background-color: rgb(250, 97, 42);
 }
 
 #equal {
     grid-column-start: 3;
     grid-column-end: 5;
     aspect-ratio: auto;
+}
+
+footer {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: blue;
+}
+
+footer a:hover {
+    color: black;
 }

@@ -7,7 +7,7 @@ const input = document.getElementById('inputDisplay');
 
 const ac = document.getElementById('ac');
 const minus = document.getElementById('minus');
-// const dot = document.getElementById('dot');
+// const dot = document.getElementById('dot'); // Feature to be added
 
 let firstNum = '';
 let secondNum = '';
@@ -19,18 +19,20 @@ main();
 function main(){
     display();
     clearAll();
-
+    // Square Root
     sqrt.addEventListener('click', () => {
         firstNum = Math.sqrt(firstNum);
         input.textContent = firstNum;
     })
 
+    // Operator listeners
     operators.forEach(op => {
         op.addEventListener('click', () => {
+            if(operator || !firstNum) return;
             operator = op.textContent;
         })
     })
-
+    // Converts into negative integer
     minus.addEventListener('click', () => {
         if(operator === undefined) {
             firstNum = -firstNum;
@@ -41,7 +43,7 @@ function main(){
             input.textContent = secondNum;
         }
     })
-
+    // If equal is click, calculate the numbers according to the selected operator
     equal.addEventListener('click', () => {
         input.textContent = operate(firstNum, secondNum, operator);
         operator = undefined;
@@ -72,7 +74,7 @@ function exponentiate(a, b) {
 
 function clearAll() {
     ac.addEventListener('click', () => {
-        input.textContent = '';
+        input.textContent = '0';
 
         firstNum = '';
         secondNum = '';
@@ -94,10 +96,12 @@ function operate(a, b, operator) {
 function display() {
     numbers.forEach(number => {
         number.addEventListener('click', () => {
+            // If operator isnt chosen, consider the number as number 1
             if(operator === undefined) {
                 firstNum += number.textContent;
                 input.textContent = firstNum;
             }
+            // After operator is chosen, it is number 2
             else {
                 secondNum += number.textContent;
                 input.textContent = secondNum;
@@ -105,7 +109,7 @@ function display() {
         })
     })
 }
-
+// Feature to be added
 /*function checkDot(a) {
     let temp = a.split('');
     for(let i = 0; i < temp.length; i++) {
