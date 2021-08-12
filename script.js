@@ -7,7 +7,7 @@ const input = document.getElementById('inputDisplay');
 
 const ac = document.getElementById('ac');
 const minus = document.getElementById('minus');
-const dot = document.getElementById('dot');
+// const dot = document.getElementById('dot');
 
 let firstNum = '';
 let secondNum = '';
@@ -24,12 +24,29 @@ function main(){
         firstNum = Math.sqrt(firstNum);
         input.textContent = firstNum;
     })
-}
 
-function negativeCovert(a) {
+    operators.forEach(op => {
+        op.addEventListener('click', () => {
+            operator = op.textContent;
+        })
+    })
+
     minus.addEventListener('click', () => {
-        if(a < 0) return -a;
-        return a;
+        if(operator === undefined) {
+            firstNum = -firstNum;
+            input.textContent = firstNum;
+        }
+        else {
+            secondNum = -secondNum;
+            input.textContent = secondNum;
+        }
+    })
+
+    equal.addEventListener('click', () => {
+        input.textContent = operate(firstNum, secondNum, operator);
+        operator = undefined;
+        firstNum = input.textContent;
+        secondNum = '';
     })
 }
 
@@ -70,7 +87,7 @@ function operate(a, b, operator) {
     if(operator === '+') return add(num1, num2);
     else if(operator === '-') return subtract(num1, num2);
     else if(operator === '*') return multiply(num1, num2);
-    else if(operator === '/') return divide(a, b);
+    else if(operator === '/') return divide(num1, num2);
     else return exponentiate(num1, num2);
 }
 
@@ -87,25 +104,12 @@ function display() {
             }
         })
     })
-
-    operators.forEach(op => {
-        op.addEventListener('click', () => {
-            operator = op.textContent;
-        })
-    })
-
-    equal.addEventListener('click', () => {
-        input.textContent = operate(firstNum, secondNum, operator);
-        operator = undefined;
-        firstNum = input.textContent;
-        secondNum = '';
-    })
 }
 
-function checkDot(a) {
+/*function checkDot(a) {
     let temp = a.split('');
     for(let i = 0; i < temp.length; i++) {
         if(temp[i] === '.') return true;
     }
     return false;
-}
+}*/

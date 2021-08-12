@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 body {
     margin: 0;
     padding: 0;
     background-color: rgb(192, 165, 115);
+
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
 }
 
 #container {
@@ -16,18 +21,9 @@ body {
     background-color: white;
 }
 
-#display {
+#inputDisplay {
     width: 90%;
     margin: 10px auto;
-    background-color: gray;
-    padding: 0.5em 1em;
-}
-
-#inputDisplay {
-    text-align: left;
-}
-
-#outputDisplay {
     text-align: right;
 }
 
@@ -35,10 +31,17 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
-    width: 380px;
+    width: 90%;
     margin: 10px auto;
 }
 
 button {
+    font-family: 'Orbitron', sans-serif;
     aspect-ratio: 1;
+}
+
+#equal {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    aspect-ratio: auto;
 }
